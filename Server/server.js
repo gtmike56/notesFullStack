@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const notesRouter = require('./routes/api/notesRouter');
 const dbURL = ""
+const serverURL = ""
 
 mongoose.connect(dbURL, {
     useNewUrlParser: true,
@@ -19,6 +20,6 @@ mongoose.connection.once("open", () => {
 app.use(express.json());
 app.use('/api/notes', notesRouter);
 
-app.listen(8081, "10.0.0.19", () => {
+app.listen(8081, serverURL, () => {
     console.log("Server running")
 });
